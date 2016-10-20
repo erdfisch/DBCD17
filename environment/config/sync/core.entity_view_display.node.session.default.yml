@@ -1,0 +1,48 @@
+uuid: be458701-3463-4b84-bc26-971310d1cc90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.session.body
+    - field.field.node.session.field_slides
+    - field.field.node.session.field_speakers
+    - field.field.node.session.field_status
+    - node.type.session
+  module:
+    - file
+    - options
+    - text
+    - user
+id: node.session.default
+targetEntityType: node
+bundle: session
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_slides:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_speakers:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_status:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  links:
+    weight: 100
+hidden: {  }

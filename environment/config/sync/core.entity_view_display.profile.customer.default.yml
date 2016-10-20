@@ -1,0 +1,26 @@
+uuid: db152b03-8a3a-493b-82c1-13bdeb290d7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.customer.address
+    - profile.type.customer
+  enforced:
+    module:
+      - commerce_order
+  module:
+    - address
+_core:
+  default_config_hash: U0WIT0I1Hra0Sdic4RmMTkCRLtXJjeDRxWw6PfxaPFI
+id: profile.customer.default
+targetEntityType: profile
+bundle: customer
+mode: default
+content:
+  address:
+    type: address_default
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

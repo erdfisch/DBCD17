@@ -1,0 +1,54 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/sponsorship_levels"
+        }
+    },
+    "tid": [
+        {
+            "value": "5"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "163d434f-2060-4b6d-aaa8-c3e7912b2a4a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "sponsorship_levels"
+        }
+    ],
+    "name": [
+        {
+            "value": "Silver",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "2"
+        }
+    ],
+    "changed": [
+        {
+            "value": "1476893255",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

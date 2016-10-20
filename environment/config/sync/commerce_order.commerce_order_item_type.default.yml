@@ -1,0 +1,13 @@
+uuid: b91fc494-0b88-4a43-b271-2d680d85bcea
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_product
+_core:
+  default_config_hash: U9iDX3WNH2BEF4pY9DvvUhd-ForNP76WDS0OoSUN5fY
+label: Default
+id: default
+purchasableEntityType: commerce_product_variation
+orderType: default

@@ -1,0 +1,15 @@
+uuid: ca82eaaf-f295-45b6-a406-35cd382cbcfc
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment_example
+id: example_payment
+label: 'Example Payment'
+weight: null
+plugin: example_onsite
+configuration:
+  api_key: sdfgsdfgsdfgsdfg
+  mode: test
+  payment_method_types:
+    - credit_card

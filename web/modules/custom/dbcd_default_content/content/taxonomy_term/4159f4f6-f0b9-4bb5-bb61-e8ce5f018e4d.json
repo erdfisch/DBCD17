@@ -1,0 +1,54 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/7?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/sponsorship_levels"
+        }
+    },
+    "tid": [
+        {
+            "value": "7"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4159f4f6-f0b9-4bb5-bb61-e8ce5f018e4d"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "sponsorship_levels"
+        }
+    ],
+    "name": [
+        {
+            "value": "Coffee break",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "4"
+        }
+    ],
+    "changed": [
+        {
+            "value": "1476893255",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

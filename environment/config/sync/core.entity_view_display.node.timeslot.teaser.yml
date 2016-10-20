@@ -1,0 +1,17 @@
+uuid: 0b5e8c91-4f52-4e37-bfdb-8fa130212656
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.timeslot
+  module:
+    - user
+id: node.timeslot.teaser
+targetEntityType: node
+bundle: timeslot
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden: {  }

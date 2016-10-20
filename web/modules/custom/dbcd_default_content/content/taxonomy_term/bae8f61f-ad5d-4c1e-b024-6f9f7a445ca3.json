@@ -1,0 +1,54 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/8?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/sponsorship_levels"
+        }
+    },
+    "tid": [
+        {
+            "value": "8"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "bae8f61f-ad5d-4c1e-b024-6f9f7a445ca3"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "sponsorship_levels"
+        }
+    ],
+    "name": [
+        {
+            "value": "Media partner",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "6"
+        }
+    ],
+    "changed": [
+        {
+            "value": "1476893255",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+uuid: 9438e113-ca08-4cf7-a435-6fe0fcf12cbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_track
+    - node.type.timeslot
+    - taxonomy.vocabulary.tracks
+id: node.timeslot.field_track
+field_name: field_track
+entity_type: node
+bundle: timeslot
+label: Track
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tracks: tracks
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: tags
+field_type: entity_reference

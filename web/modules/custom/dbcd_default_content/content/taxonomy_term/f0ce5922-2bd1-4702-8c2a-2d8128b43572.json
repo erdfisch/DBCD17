@@ -1,0 +1,54 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/sponsorship_levels"
+        }
+    },
+    "tid": [
+        {
+            "value": "9"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "f0ce5922-2bd1-4702-8c2a-2d8128b43572"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "sponsorship_levels"
+        }
+    ],
+    "name": [
+        {
+            "value": "BBQ",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "5"
+        }
+    ],
+    "changed": [
+        {
+            "value": "1476893255",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

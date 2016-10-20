@@ -1,0 +1,99 @@
+image: 'docker.erdfisch.de/erdfisch/web:5.6-apache'
+services:
+  - 'docker.erdfisch.de/erdfisch/mysql:latest'
+  - 'docker.erdfisch.de/erdfisch/selenium-standalone-firefox:latest'
+
+variables:
+  MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  MYSQL_DATABASE: 'ci'
+  SIMPLETEST_DB: 'sqlite://localhost/../environment/tmp/phpunit.sql'
+
+stages:
+  - build
+  - install
+  - test
+  
+cache:
+  key: "$CI_BUILD_REF"
+  paths:
+    - 'bin'
+    - 'composer.lock'
+    - 'drush/contrib'
+    - 'web/core'
+    - 'web/modules/contrib'
+    - 'web/profiles/contrib'
+    - 'web/themes/contrib'
+    - 'web/.csslintrc'
+    - 'web/.editorconfig'
+    - 'web/.eslintignore'
+    - 'web/.eslintrc'
+    - 'web/.gitattributes'
+    - 'web/.htaccess'
+    - 'web/autoload.php'
+    - 'web/index.php'
+    - 'web/robots.txt'
+    - 'web/update.php'
+    - 'web/web.config'
+    - 'web/sites/default/default.services.yml'
+    - 'web/sites/default/default.settings.php'
+    - 'web/sites/development.services.yml'
+    - 'web/sites/example.settings.local.php'
+    - 'web/sites/example.sites.php'
+    - 'vendor'
+
+composer:
+  stage: build
+  script:
+    - 'php composer.phar install --prefer-dist --no-interaction'
+    - 'php composer.phar drupal-scaffold'
+
+drupal:
+  stage: install
+  script:
+    - 'cd web'
+    - 'cp sites/settings-ci.php sites/default/settings.php'
+    # Configuration installer requires the settings file to be writable.
+    # @see \Drupal\config_installer\Form\SiteConfigureForm::buildForm()
+    - 'chmod 777 sites/default/settings.php'
+    - 'php ../bin/drush.php --yes site-install config_installer'
+    - 'cd ..'
+  dependencies:
+    - composer
+
+phpunit:
+  stage: test
+  script: 'SIMPLETEST_DB=$SIMPLETEST_DB php bin/phpunit'
+  dependencies:
+    - composer
+
+behat:
+  stage: test
+  script:
+    - 'export CI_PROJECT_NAME=$(basename $CI_PROJECT_DIR)'
+    - "export SELF_IP=$(/sbin/ip route|awk '/src/ { print $9 }')"
+    - "export SELENIUM_ADDR=docker.erdfisch.de-erdfisch-selenium-standalone-firefox:4444"
+    - "if [[ ! -d ~/.ssh ]]; then mkdir ~/.ssh; fi"
+    - "if [[ ! -f ~/.ssh/known_hosts ]]; then touch ~/.ssh/known_hosts; fi"
+    - "ssh-keyscan -H git.erdfisch.de >> ~/.ssh/known_hosts"
+
+    - 'cp web/sites/settings-ci.php web/sites/default/settings.php'
+    - 'mkdir web/sites/default/files'
+    - 'mkdir -p tmp'
+    - 'chmod 777 -R tmp'
+    - 'chmod 777 -R web/sites/default/files'
+    - 'chown -R www-data. web/sites/default/files'
+
+
+
+    # Templates.
+    - 'sed -e "s|{{{ drupal_root }}}|$PWD/web|g" <test/behat/behat.example.yml >test/behat/behat.yml'
+    - 'sed -i "s/{{{ base_url }}}/http:\/\/$SELF_IP/g" test/behat/behat.yml'
+    - 'sed -i "s/{{{ wd_host }}}/http:\/\/$SELENIUM_ADDR\/wd\/hub/g" test/behat/behat.yml'
+    - 'sed -i "s|{{{ screenshotPath }}}|$PWD/build/screenshots|g" test/behat/behat.yml'
+
+
+    - 'chmod 777 -R tmp'
+    - 'chmod 777 -R web/sites/default/files'
+
+    # Behat tests.
+    - 'scripts/runtests.sh $CI_PROJECT_NAME $CI_BUILD_ID'

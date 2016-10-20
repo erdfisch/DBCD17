@@ -1,0 +1,17 @@
+uuid: 01b90767-3cfc-4d59-8a6b-89dfa755ee95
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Timeslot
+type: timeslot
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

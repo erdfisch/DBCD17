@@ -1,0 +1,13 @@
+{
+  "name": "drupal-project",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/erdfisch/drupal-project.svg?branch=8.x)](https://travis-ci.org/erdfisch/drupal-project)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erdfisch/drupal-project.git"
+  },
+  "author": ""
+}

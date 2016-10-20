@@ -1,0 +1,7 @@
+name: dbcd_default_content
+type: module
+description: DBCD default content.
+core: 8.x
+package: DBCD
+dependencies:
+ - default_content

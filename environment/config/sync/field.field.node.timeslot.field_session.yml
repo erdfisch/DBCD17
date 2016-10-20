@@ -1,0 +1,29 @@
+uuid: cc0342ee-a532-49c4-80e4-39b297f5bbf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session
+    - node.type.session
+    - node.type.timeslot
+id: node.timeslot.field_session
+field_name: field_session
+entity_type: node
+bundle: timeslot
+label: Session
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      session: session
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

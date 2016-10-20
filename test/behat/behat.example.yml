@@ -1,0 +1,37 @@
+default:
+  calls:
+    error_reporting: 32759
+  suites:
+    default:
+      contexts:
+        - FeatureContext:
+            screenshot_path: '{{{ screenshotPath }}}'
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  formatters:
+      pretty:
+        verbose: true
+        paths: false
+        snippets: true
+      html:
+        output_path: /var/share/builds/
+  extensions:
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
+      renderer: Behat2
+      print_args: true
+      print_outp: true
+      loop_break: true
+    Behat\MinkExtension:
+      browser_name: "firefox"
+      selenium2:
+        wd_host: "{{{ wd_host }}}"
+      goutte: ~
+      base_url: "{{{ base_url }}}"
+    Drupal\DrupalExtension:
+      api_driver: "drupal"
+      blackbox: ~
+      drush:
+        root: "{{{ drupal_root }}}"
+      drupal:
+        drupal_root: "{{{ drupal_root }}}"

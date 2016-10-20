@@ -1,0 +1,11 @@
+uuid: ec40b4e8-a63a-46a3-a6b6-1f7ae634b777
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5Ef-ba0L-9qIHRfOXo9Fws4cfCZntOnHqIjNPZGxM3Q
+id: default
+label: Default
+description: ''
+variationType: default
+injectVariationFields: true
